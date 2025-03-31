@@ -30,6 +30,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CF1111392D98764500F7762E /* Exceptions for "scrobby" folder in "scrobbyTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Fonts/Batrade-3zDDy.otf",
+			);
+			target = CF1F3B582D970D920030B0E4 /* scrobbyTests */;
+		};
+		CF11113A2D98764500F7762E /* Exceptions for "scrobby" folder in "scrobbyUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Fonts/Batrade-3zDDy.otf",
+			);
+			target = CF1F3B622D970D920030B0E4 /* scrobbyUITests */;
+		};
 		CF1F3B6B2D970D920030B0E4 /* Exceptions for "scrobby" folder in "scrobby" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -44,6 +58,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				CF1F3B6B2D970D920030B0E4 /* Exceptions for "scrobby" folder in "scrobby" target */,
+				CF1111392D98764500F7762E /* Exceptions for "scrobby" folder in "scrobbyTests" target */,
+				CF11113A2D98764500F7762E /* Exceptions for "scrobby" folder in "scrobbyUITests" target */,
 			);
 			path = scrobby;
 			sourceTree = "<group>";
