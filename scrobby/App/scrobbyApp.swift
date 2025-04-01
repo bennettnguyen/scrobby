@@ -12,7 +12,7 @@ import SwiftData
 struct scrobbyApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Scrobble.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +25,7 @@ struct scrobbyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            RootView()
         }
         .modelContainer(sharedModelContainer)
     }
