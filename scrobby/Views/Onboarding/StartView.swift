@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct StartView: View {
-    @AppStorage("isFirstTime") private var isFirstTime: Bool = true
+    @StateObject private var viewModel = StartViewModel()
 
     var body: some View {
         ZStack {
@@ -10,6 +10,7 @@ struct StartView: View {
 
             VStack(spacing: 30) {
                 Text("Welcome to Scrobby")
+                    .font(.custom("Batrade", size: 40))
                     .foregroundColor(.white)
 
                 VStack(spacing: 15) {
@@ -20,9 +21,7 @@ struct StartView: View {
                         .padding(.horizontal)
 
                     Button(action: {
-                        withAnimation {
-                            isFirstTime = false
-                        }
+                        viewModel.startOnboarding()
                     }) {
                         Text("Get Started")
                             .font(.headline)
@@ -35,6 +34,9 @@ struct StartView: View {
                     }
                 }
             }
+        }
+        .sheet(isPresented: $viewModel.showLogin) {
+            LoginView()
         }
     }
 }

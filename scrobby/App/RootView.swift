@@ -3,7 +3,7 @@ import SwiftData
 
 struct RootView: View {
     @AppStorage("isFirstTime") private var isFirstTime: Bool = true
-    @State private var isShowingSplash = true
+    @State private var isShowingSplash: Bool = true
     
     var body: some View {
         Group {

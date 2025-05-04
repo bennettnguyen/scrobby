@@ -14,8 +14,11 @@ struct scrobbyApp: App {
         let schema = Schema([
             Scrobble.self,
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+        let modelConfiguration = ModelConfiguration(
+            schema: schema,
+            isStoredInMemoryOnly: false
+        )
+        
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
@@ -23,9 +26,22 @@ struct scrobbyApp: App {
         }
     }()
 
+    let serviceContainer: ServiceContainer
+
+    init() {
+        self.serviceContainer = ServiceContainer(
+            modelContext: sharedModelContainer.mainContext
+        )
+        BackgroundTaskManager.shared.registerBackgroundTasks()
+    }
+
     var body: some Scene {
         WindowGroup {
             RootView()
+                .environmentObject(serviceContainer)
+                .onAppear {
+                    BackgroundTaskManager.shared.scheduleBackgroundScrobble()
+                }
         }
         .modelContainer(sharedModelContainer)
     }
